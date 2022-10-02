@@ -1,13 +1,19 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 import { timeSelectors } from "../store/time";
 
-const TimeSpend = ({className}) => {
+import { formatSecondsToHoursMinutesSeconds } from "../utils/timeFormatUtils";
 
-	const timePassed = useSelector(timeSelectors.getTimePassed);
-	
-	return <div className={className}>
-		<span className="text-xl">Time spend on site: {timePassed}</span>
-		</div>
-}
+const TimeSpend = ({ className }) => {
+    const timePassed = useSelector(timeSelectors.getTimePassed);
+
+    return (
+        <div className={className}>
+            <span className="text-xl">
+                Time spend on site:{" "}
+                {formatSecondsToHoursMinutesSeconds(timePassed)}
+            </span>
+        </div>
+    );
+};
 
 export default TimeSpend;
