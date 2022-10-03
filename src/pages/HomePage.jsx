@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { timeActions } from "../store/time";
 
-import TimeSpend from "./TimeSpend";
-import Button from "./Button";
+import TimeSpend from "../components/TimeSpend";
+import Button from "../components/Button";
 
 const HomePage = () => {
     const [showTimer, setShowTimer] = useState(true);
@@ -18,10 +18,10 @@ const HomePage = () => {
             dispatch(timeActions.updateTime(1));
         }, 1000);
         return () => clearInterval(interval);
-    });
+    }, []);
 
     return (
-        <div className="w-full h-screen flex flex-col justify-center items-center">
+        <div className="w-full h-full flex flex-col justify-center items-center">
             <h1>Welcome to Ucan</h1>
             {showTimer && <TimeSpend className="my-4" />}
             <Button

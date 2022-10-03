@@ -1,24 +1,31 @@
-import logo from "./logo.svg";
-
 import { Provider } from "react-redux";
-
 import store from "./store";
-import HomePage from "./components/HomePage";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Navigation from "./components/Navigation";
+import HomePage from "./pages/HomePage";
+import BeersPage from "./pages/BeersPage";
 
 function App() {
-	return (
-		<Provider store={store}>
-			<div className='App'>
-				<header className='fixed top-0 w-full'>
-					<img src={logo} className='w-32 h-auto mx-auto my-10' alt='logo' />
-				</header>
+    return (
+        <Provider store={store}>
+            <div className="App h-screen">
+                <BrowserRouter>
+                    <header className="flex items-center top-0 h-1/6 w-full box-border px-4">
+                        <Navigation />
+                    </header>
 
-				<main>
-					<HomePage />
-				</main>
-			</div>
-		</Provider>
-	);
+                    <main className="h-5/6">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/beers" element={<BeersPage />} />
+                        </Routes>
+                    </main>
+                </BrowserRouter>
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
