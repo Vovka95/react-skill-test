@@ -7,6 +7,10 @@ import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import BeersPage from "./pages/BeersPage";
 
+import fetchBeers from "./store/beers/fetchBeers";
+
+store.dispatch(fetchBeers());
+
 function App() {
     return (
         <Provider store={store}>
