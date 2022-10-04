@@ -12,7 +12,10 @@ const filterBeers = (beersData, filterData) => {
             .filter((item) => {
                 if (filterData.searchValue === "") return true;
 
-                return item.name.includes(filterData.searchValue);
+                const itemName = item.name.toUpperCase();
+                const searchValue = filterData.searchValue.toUpperCase();
+
+                return itemName.includes(searchValue);
             });
 
         dispatch(filterBeersRequest(filteredBeersData));
