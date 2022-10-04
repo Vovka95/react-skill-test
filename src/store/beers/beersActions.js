@@ -2,6 +2,7 @@ import {
     FETCH_BEERS_PENDING,
     FETCH_BEERS_SUCCESS,
     FETCH_BEERS_ERROR,
+    FILTER_BEERS_REQUEST,
 } from "../types";
 
 export const fetchBeersPending = () => {
@@ -21,5 +22,12 @@ export const fetchBeersError = (error) => {
     return {
         type: FETCH_BEERS_ERROR,
         payload: error,
+    };
+};
+
+export const filterBeersRequest = (filteredBeersData) => {
+    return {
+        type: FILTER_BEERS_REQUEST,
+        payload: filteredBeersData,
     };
 };
