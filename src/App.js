@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
 import BeersPage from "./pages/BeersPage";
+import BeerDetailsPage from "./pages/BeersDetailsPage";
 
 import fetchBeers from "./store/beers/fetchBeers";
 
@@ -24,6 +25,10 @@ function App() {
                         <Routes>
                             <Route path="/" element={<HomePage />} />
                             <Route path="/beers" element={<BeersPage />} />
+                            <Route
+                                path="/beers/:id"
+                                element={<BeerDetailsPage />}
+                            />
                         </Routes>
                     </main>
                 </BrowserRouter>

@@ -47,7 +47,7 @@
         text-transform: capitalize;
     }
 
-    .card__body .abv {
+    .tag {
         width: 15%;
         height: 30px;
         display: flex;

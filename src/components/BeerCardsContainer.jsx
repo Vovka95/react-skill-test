@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import { beersSelectors } from "../store/beers";
 
@@ -9,7 +11,9 @@ const BeerCardsContainer = () => {
     return (
         <div className="h-90-present overflow-auto card__container">
             {filteredBeersData.map(({ id, name, abv, image_url }) => (
-                <BeerCard key={id} src={image_url} title={name} abv={abv} />
+                <Link key={id} to={`/beers/${id}`}>
+                    <BeerCard src={image_url} title={name} abv={abv} />
+                </Link>
             ))}
         </div>
     );
